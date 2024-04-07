@@ -25,6 +25,20 @@ namespace RecipeApp
 
                 
             }
+
+            Console.Write("Number of steps: ");                             //Loop created to store muti data of number if steps to be used to capture in Array
+            int numSteps = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < numSteps; i++)
+            {
+                Console.WriteLine($"Enter step {i + 1}:");
+                string step = Console.ReadLine();
+            }
+
+            // Display the full recipe
+            Console.WriteLine("\nFull Recipe:");                           //Display full recipe (Ingredients + Steps)                                     
+
+
         }
 
     }
