@@ -94,6 +94,13 @@ namespace RecipeApp
             DisplayRecipe();                                                    //Display Scaled Recipe
         }
 
+        public void ResetQuantities()   //Method to reset qty of recipe
+        {
+            Console.WriteLine("\nQuantities reset to original values.");
+            DisplayRecipe();
+        }
+
+
 
 
 
