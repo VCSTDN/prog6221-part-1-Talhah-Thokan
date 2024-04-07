@@ -81,6 +81,21 @@ namespace RecipeApp
             }
         }
 
+        public void ScaleRecipe(double factor)          //Method to scale recipe 
+        {
+            for (int i = 0; i < ingredients.Length; i++)            //Loop through ingredients
+            {
+                string[] parts = ingredients[i].Split(' ');
+                double quantity = double.Parse(parts[0]);
+                quantity *= factor;
+                ingredients[i] = $"{quantity} {parts[1]} of {string.Join(" ", parts, 3, parts.Length - 3)}";
+            }
+            Console.WriteLine($"\nRecipe scaled by factor {factor}."); 
+            DisplayRecipe();                                                    //Display Scaled Recipe
+        }
+
+
+
 
     }
 }
