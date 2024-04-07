@@ -100,6 +100,12 @@ namespace RecipeApp
             DisplayRecipe();
         }
 
+        public void ClearRecipe() //Method to clear recipe
+        {
+            ingredients = new string[0];
+            steps = new string[0];
+            Console.WriteLine("\nRecipe cleared.");
+        }
 
 
 
