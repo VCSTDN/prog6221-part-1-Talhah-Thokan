@@ -33,11 +33,43 @@ namespace RecipeApp
             {
                 Console.WriteLine($"Enter step {i + 1}:");
                 string step = Console.ReadLine();
+                recipe.AddStep(step);
             }
 
             // Display the full recipe
             Console.WriteLine("\nFull Recipe:");                           //Display full recipe (Ingredients + Steps)                                     
+            recipe.DisplayRecipe();
 
+
+            // Scaling the recipe
+            Console.WriteLine("\nDo you want to scale the recipe? Enter factor (0.5, 2, or 3), or type 'reset' to reset quantities, or 'clear' to enter a new recipe:");
+            string scaleInput = Console.ReadLine();                              //Case statement used to scale recipe based on user requirements with 3 options, else error thrown
+
+
+            switch (scaleInput)
+            {
+                case "0.5":
+                    recipe.ScaleRecipe(0.5);
+                    break;
+                case "2":
+                    recipe.ScaleRecipe(2);
+                    break;
+                case "3":
+                    recipe.ScaleRecipe(3);
+                    break;
+                case "reset":
+                    recipe.ResetQuantities();
+                    break;
+                case "clear":
+                    recipe.ClearRecipe();
+                    Main(args);                                                  // Restart the application for a new recipe
+                    return;
+                default:
+                    Console.WriteLine("Invalid input.");
+                    break;
+            }
+
+            Console.ReadLine();
         }
 
     }
@@ -90,7 +122,7 @@ namespace RecipeApp
                 quantity *= factor;
                 ingredients[i] = $"{quantity} {parts[1]} of {string.Join(" ", parts, 3, parts.Length - 3)}";
             }
-            Console.WriteLine($"\nRecipe scaled by factor {factor}."); 
+            Console.WriteLine($"\nRecipe scaled by factor {factor}.");
             DisplayRecipe();                                                    //Display Scaled Recipe
         }
 
@@ -112,3 +144,8 @@ namespace RecipeApp
 
     }
 }
+
+
+
+
+   
